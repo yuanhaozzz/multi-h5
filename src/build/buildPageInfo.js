@@ -46,7 +46,7 @@ function initProductionData(resolve, reject) {
 
 function initDevelopmentData(resolve, reject) {
   if (!Object.keys(pages).length) {
-    console.log(chalk.red("没有选择调试页面"));
+    console.log(chalk.red("没有选择页面"));
     reject();
     return;
   }
@@ -56,10 +56,10 @@ function initDevelopmentData(resolve, reject) {
 
 module.exports = function () {
   return new Promise((resolve, reject) => {
-    if (process.env.NODE_ENV === "production") {
-      initProductionData(resolve, reject);
-      return;
-    }
+    // if (process.env.NODE_ENV === "production") {
+    //   initProductionData(resolve, reject);
+    //   return;
+    // }
     initDevelopmentData(resolve, reject);
   });
 };
