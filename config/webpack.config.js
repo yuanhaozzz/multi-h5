@@ -195,12 +195,11 @@ module.exports = function (webpackEnv, pageInfo = {}) {
       path: paths.appBuild,
       pathinfo: isEnvDevelopment,
       filename: isEnvProduction
-        ? "static/js/[name].[contenthash:8].js"
-        : isEnvDevelopment && "static/js/[name].bundle.js",
+        ? "[name]/js/[contenthash:8].js"
+        : isEnvDevelopment && "[name]/js/bundle.js",
       chunkFilename: isEnvProduction
-        ? "static/js/[name].[contenthash:8].chunk.js"
-        : isEnvDevelopment && "static/js/[name].chunk.js",
-      assetModuleFilename: "static/media/[name].[hash][ext]",
+        ? "[name]/js/[contenthash:8].chunk.js"
+        : isEnvDevelopment && "[name]/js/chunk.js",
       publicPath: paths.publicUrlOrPath,
       devtoolModuleFilenameTemplate: isEnvProduction
         ? (info) =>
@@ -296,21 +295,40 @@ module.exports = function (webpackEnv, pageInfo = {}) {
         {
           oneOf: [
             {
-              test: [/\.avif$/],
+              test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
               type: "asset",
-              mimetype: "image/avif",
               parser: {
                 dataUrlCondition: {
                   maxSize: imageInlineSizeLimit,
                 },
               },
+              generator: {
+                filename: (content) => {
+                  const contentPath = content.filename.replace(
+                    "src/pages/",
+                    ""
+                  );
+                  let pathname = contentPath;
+                  if (isEnvProduction) {
+                    const pathArr = contentPath.split(".");
+                    let path = pathArr[0];
+                    let ext = pathArr[1];
+                    pathname = `${path}.[hash:8].${ext}`;
+                  }
+                  return pathname;
+                },
+              },
             },
             {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-              type: "asset",
-              parser: {
-                dataUrlCondition: {
-                  maxSize: imageInlineSizeLimit,
+              test: [/\.mp4$/, /\.mp3$/, /\.svga$/, /\.ttf$/, /\.otf$/],
+              type: "asset/resource",
+              generator: {
+                filename: (content) => {
+                  const contentPath = content.filename.replace(
+                    "src/pages/",
+                    ""
+                  );
+                  return contentPath;
                 },
               },
             },
@@ -332,7 +350,8 @@ module.exports = function (webpackEnv, pageInfo = {}) {
                 {
                   loader: require.resolve("file-loader"),
                   options: {
-                    name: "static/media/[name].[hash].[ext]",
+                    name: "[path][name].[hash].[ext]",
+                    context: path.resolve(__dirname, "../src/pages"),
                   },
                 },
               ],
@@ -471,8 +490,8 @@ module.exports = function (webpackEnv, pageInfo = {}) {
       isEnvDevelopment && new CaseSensitivePathsPlugin(),
       isEnvProduction &&
         new MiniCssExtractPlugin({
-          filename: "static/css/[name].[contenthash:8].css",
-          chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+          filename: "[name]/css/[contenthash:8].css",
+          chunkFilename: "[name]/css/[contenthash:8].chunk.css",
         }),
       new WebpackManifestPlugin({
         fileName: "asset-manifest.json",

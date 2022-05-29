@@ -2,6 +2,7 @@
 
 const path = require("path");
 const fs = require("fs");
+const pages = require("../src/build");
 const getPublicUrlOrPath = require("react-dev-utils/getPublicUrlOrPath");
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
@@ -27,6 +28,15 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 
+const getModule = () => {
+  const moduleList = [];
+  Object.keys(pages).forEach((module) => {
+    moduleList.push(resolveModule(resolveApp, `src/pages/${module}/index`));
+  });
+
+  return moduleList;
+};
+
 module.exports = {
   dotenv: resolveApp(".env"),
   appPath: resolveApp("."),
@@ -34,10 +44,7 @@ module.exports = {
   appPublic: resolveApp("public"),
   public: resolveApp("public"),
   appHtml: resolveApp("public/index.html"),
-  appIndexJs: [
-    resolveModule(resolveApp, "src/pages/home/index"),
-    resolveModule(resolveApp, "src/pages/test/index"),
-  ],
+  appIndexJs: getModule(),
   appPackageJson: resolveApp("package.json"),
   appSrc: resolveApp("src"),
   src: resolveApp("src"),

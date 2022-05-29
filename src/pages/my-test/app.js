@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import { getList } from "./api";
 
+import Test2 from "./static/test2.png";
+import Clock from "./static/clock.svg";
+import Music from "./static/music.mp3";
+
 import "./style.scss";
 class Home extends Component {
   constructor(props) {
@@ -25,6 +29,9 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <h2>欢迎来到浩哥多页面移动端模版</h2>
+        <img src={Test2} />
+        <img src={Clock} />
+        <audio src={Music} controls></audio>
       </div>
     );
   }

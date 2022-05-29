@@ -60,6 +60,7 @@ module.exports = function () {
     //   initProductionData(resolve, reject);
     //   return;
     // }
+    debugger;
     initDevelopmentData(resolve, reject);
   });
 };

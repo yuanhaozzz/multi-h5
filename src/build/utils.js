@@ -15,7 +15,7 @@ exports.getPageBaseInfo = function (options) {
   };
 };
 
-exports.resolve = function (_path) {
+const resolve = function (_path) {
   return path.resolve(__dirname, "../../", _path);
 };
 
@@ -25,11 +25,12 @@ exports.setHtmlPluginAndEntry = (info) => {
   for (const [key, value] of Object.entries(info)) {
     const { title } = value;
     // 多页面入口
-    entryList[key] = paths.src + "/" + key + "/index.js";
+    entryList[key] = resolve("src") + "/pages/" + key + "/index.js";
+    debugger;
     // 页面打包插件
     htmlPluginList.push(
       new HtmlWebpackPlugin({
-        template: paths.public + "/index.html",
+        template: resolve("public") + "/index.html",
         filename: `${key}/index.html`,
         chunks: [key],
         inject: true,
