@@ -43,6 +43,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home-wrapper">
+        222
         <div className="bomb-animation"></div>
         <h2>欢迎来到浩哥多页面移动端模版</h2>
         <audio src={Music} controls></audio>

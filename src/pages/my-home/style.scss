@@ -4,6 +4,12 @@ html,body,#root{
         height: 100%;
 }
 
+
+@font-face {
+    font-family: DIN-Num-Medium;
+    src: url(./static/DIN-Num-Medium.ttf);
+}
+
 .home-wrapper{
     height: 100%;
     font-family: DIN-Num-Medium;
