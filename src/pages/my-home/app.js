@@ -16,13 +16,7 @@ class Home extends Component {
     this.getData();
   }
 
-  async getData() {
-    try {
-      console.log(data);
-    } catch (error) {
-      console.log(error, "error");
-    }
-  }
+  async getData() {}
 
   render() {
     return (
