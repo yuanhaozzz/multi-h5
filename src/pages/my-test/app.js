@@ -29,8 +29,8 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         <h2>欢迎来到浩哥多页面移动端模版</h2>
-        <img src={Test2} />
-        <img src={Clock} />
+        <img src={Test2} alt="" />
+        <img src={Clock} alt="" />
         <audio src={Music} controls></audio>
       </div>
     );

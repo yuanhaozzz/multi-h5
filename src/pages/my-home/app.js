@@ -48,9 +48,9 @@ class Home extends Component {
         <h2>欢迎来到浩哥多页面移动端模版</h2>
         <audio src={Music} controls></audio>
         <video src={Video} controls></video>
-        <img src={ClockSvg} />
-        <img src={Test2} />
-        <img src={Test1} />
+        <img src={ClockSvg} alt="" />
+        <img src={Test2} alt="" />
+        <img src={Test1} alt="" />
       </div>
     );
   }
