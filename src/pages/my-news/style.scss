@@ -1,0 +1,29 @@
+$loadingBackground: #00d8c9;
+
+html,body,#root{
+        height: 100%;
+}
+
+
+@font-face {
+    font-family: DIN-Num-Medium;
+    src: url(./static/DIN-Num-Medium.ttf);
+}
+
+.home-wrapper{
+    height: 100%;
+    font-family: DIN-Num-Medium;
+    h2{
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+}
+h2{
+    background: url('./static/test2.png');
+}
+
+video{
+    width: 100%;
+    height: 300px;
+}
