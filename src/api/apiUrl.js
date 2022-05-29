@@ -11,16 +11,16 @@ const HOST = window.location.host || online;
 
 const ApiMap = {
   [online]: {
-    root: "https://gos-busi.misslooker.com",
+    root: "",
   },
   [beta]: {
-    root: "https://betagos-busi.misslooker.com",
+    root: "",
   },
   [test]: {
-    root: "https://testgos-busi.misslooker.com",
+    root: "",
   },
   [local]: {
-    root: "https://testgos-busi.misslooker.com",
+    root: "",
   },
 };
 
