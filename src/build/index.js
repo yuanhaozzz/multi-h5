@@ -7,7 +7,7 @@ module.exports = {
   // "my-test": getPageBaseInfo({
   //   title: "测试页面",
   // }),
-  // "my-news": getPageBaseInfo({
-  //   title: "news",
-  // }),
+  "my-news": getPageBaseInfo({
+    title: "news",
+  }),
 };
