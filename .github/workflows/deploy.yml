@@ -23,13 +23,13 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: deploy
-        uses: nogsantos/scp-deploy@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          user: ${{ secrets.SSH_USERNAME }}
+          username: ${{ secrets.SSH_USERNAME }}
           port: 22
-          src: ./dist/*
-          remote: ${{ secrets.TARGET }}
+          source: ./dist/*
+          target: ${{ secrets.TARGET }}
           key: ${{ secrets.DEPLOY_KEY }}
       #- name: deploy
       # uses: easingthemes/ssh-deploy@v2.0.7
