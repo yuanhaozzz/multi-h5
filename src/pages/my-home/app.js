@@ -22,7 +22,7 @@ class Home extends Component {
     return (
       <div className="home-wrapper">
         222
-        <h2>欢迎来到浩哥多页面移动端模版 hello world！!!!!</h2>
+        <h2>欢迎来到浩哥多页面移动端模版 hello world！!!!!!</h2>
         <audio src={Music} controls></audio>
         <video src={Video} controls></video>
         <img src={ClockSvg} alt="" />
