@@ -22,7 +22,16 @@ jobs:
           node-version: 14.18.1
       - run: npm ci
       - run: npm run build
-      - name: deploy
+      - name: deploy my-home
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "dist/my-home"
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          TARGET: "/root/web/multi-h5/dist/"
+      - name: deploy my-news
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
