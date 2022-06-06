@@ -13,7 +13,7 @@ class Home extends Component {
   async getData() {}
 
   render() {
-    return <div className="home-wrapper">news</div>;
+    return <div className="home-wrapper">news!!</div>;
   }
 }
 
