@@ -113,14 +113,14 @@ function resetYmlFile() {
   pageKeys.forEach((page) => {
     file += `
       - name: deploy ${page} 
-      uses: easingthemes/ssh-deploy@v2.0.7
-      env:
-        SSH_PRIVATE_KEY: \${{ secrets.DEPLOY_KEY }}
-        ARGS: "-avzr --delete"
-        SOURCE: "dist/${page}"
-        REMOTE_HOST: \${{ secrets.SSH_HOST }}
-        REMOTE_USER: \${{ secrets.SSH_USERNAME }}
-        TARGET: "/root/web/multi-h5/dist/"
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: \${{ secrets.DEPLOY_KEY }}
+          ARGS: "-avzr --delete"
+          SOURCE: "dist/${page}"
+          REMOTE_HOST: \${{ secrets.SSH_HOST }}
+          REMOTE_USER: \${{ secrets.SSH_USERNAME }}
+          TARGET: "/root/web/multi-h5/dist/"
    `;
   });
   // 重写deploy配置文件
