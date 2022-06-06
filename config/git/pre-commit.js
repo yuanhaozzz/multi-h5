@@ -132,6 +132,7 @@ function resetYmlFile() {
   const findYml = status?.find((item) => item.file.includes(".yml"));
   if (findYml) {
     console.log("部署文件配置已修改，请重新提交");
+    execStr(`git add deploy.yml`);
   }
 }
 
@@ -141,8 +142,7 @@ function check() {
   // eslint检查
   // checkEslint();
   // 重写打包配置文件
-  // resetYmlFile();
-  console.log(execStr("cat $1"), "==============");
+  resetYmlFile();
 }
 
 check();
