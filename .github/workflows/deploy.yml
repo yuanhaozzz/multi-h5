@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-   - name: 打包页面：my-home 
+   - name: deploy my-home 
    uses: easingthemes/ssh-deploy@v2.0.7
    env:
      SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
@@ -37,22 +37,12 @@ jobs:
      REMOTE_USER: ${{ secrets.SSH_USERNAME }}
      TARGET: "/root/web/multi-h5/dist/"
    
-   - name: 打包页面：my-test 
+   - name: deploy my-test 
    uses: easingthemes/ssh-deploy@v2.0.7
    env:
      SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
      ARGS: "-avzr --delete"
      SOURCE: "dist/my-test"
-     REMOTE_HOST: ${{ secrets.SSH_HOST }}
-     REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-     TARGET: "/root/web/multi-h5/dist/"
-   
-   - name: 打包页面：my-news 
-   uses: easingthemes/ssh-deploy@v2.0.7
-   env:
-     SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-     ARGS: "-avzr --delete"
-     SOURCE: "dist/my-news"
      REMOTE_HOST: ${{ secrets.SSH_HOST }}
      REMOTE_USER: ${{ secrets.SSH_USERNAME }}
      TARGET: "/root/web/multi-h5/dist/"
