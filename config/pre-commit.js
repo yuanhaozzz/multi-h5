@@ -98,4 +98,6 @@ function check() {
   checkEslint();
 }
 
+console.log(222123123123);
+
 check();
