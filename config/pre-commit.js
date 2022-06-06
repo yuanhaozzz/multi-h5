@@ -96,7 +96,7 @@ function check() {
   // checkGitStageFileConflict();
   // eslint检查
   checkEslint();
-  console.log(22212321231223);
+  console.log(222122321231223);
 }
 
 check();
