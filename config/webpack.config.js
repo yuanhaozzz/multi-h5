@@ -328,7 +328,14 @@ module.exports = function (webpackEnv, pageInfo = {}) {
                     "src/pages/",
                     ""
                   );
-                  return contentPath;
+                  let pathname = contentPath;
+                  if (isEnvProduction) {
+                    const pathArr = contentPath.split(".");
+                    let path = pathArr[0];
+                    let ext = pathArr[1];
+                    pathname = `${path}.[hash:8].${ext}`;
+                  }
+                  return pathname;
                 },
               },
             },
@@ -350,7 +357,7 @@ module.exports = function (webpackEnv, pageInfo = {}) {
                 {
                   loader: require.resolve("file-loader"),
                   options: {
-                    name: "[path][name].[hash].[ext]",
+                    name: "[path][name].[hash:8].[ext]",
                     context: path.resolve(__dirname, "../src/pages"),
                   },
                 },
