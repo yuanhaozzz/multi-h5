@@ -129,8 +129,11 @@ function resetYmlFile() {
     file
   );
 
-  const readd = gitStatus();
-  console.log(readd);
+  const status = gitStatus();
+  const findYml = status?.find((item) => item.file.includes(".yml"));
+  if (findYml) {
+    console.log("部署文件配置已修改，请重新提交");
+  }
 }
 
 function check() {
