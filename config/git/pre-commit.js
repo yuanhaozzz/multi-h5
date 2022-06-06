@@ -85,7 +85,7 @@ function checkGitStageFileConflict() {
 
 function checkEslint() {
   const arrErrorMsg = [`🤯 请先解决eslint警告后在提交！`, `📦 警告如下: `];
-  let eslint = execStr(`eslint`);
+  let eslint = execStr(`eslint --fix`);
 
   const format = eslint.split("\n");
   if (format.length > 1) {
