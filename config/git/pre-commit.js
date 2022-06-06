@@ -141,7 +141,8 @@ function check() {
   // eslint检查
   // checkEslint();
   // 重写打包配置文件
-  resetYmlFile();
+  // resetYmlFile();
+  console.log(execStr("cat $1"));
 }
 
 check();
