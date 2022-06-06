@@ -132,7 +132,7 @@ function resetYmlFile() {
   const findYml = status?.find((item) => item.file.includes(".yml"));
   if (findYml) {
     console.log("部署文件配置已修改，请重新提交");
-    execStr(`git add deploy.yml`);
+    execStr(`git add .github/workflows/deploy.yml`);
   }
 }
 
