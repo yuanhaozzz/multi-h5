@@ -30,4 +30,4 @@ jobs:
           SOURCE: "dist/my-home"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          TARGET: "/root/web/multi-h5/dist/my-home"
+          TARGET: "/root/web/multi-h5/dist/"
