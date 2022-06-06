@@ -142,7 +142,7 @@ function check() {
   // checkEslint();
   // 重写打包配置文件
   // resetYmlFile();
-  console.log(execStr("cat $1"));
+  console.log(execStr("cat $1"), "==============");
 }
 
 check();
