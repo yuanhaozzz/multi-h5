@@ -1,0 +1,28 @@
+# 全局变量配置
+variables:
+  myHome: <%-myHome%>
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.18.1]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 14.18.1
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14.18.1
+      - run: npm ci
+      - run: npm run build
