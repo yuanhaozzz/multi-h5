@@ -85,7 +85,7 @@ function checkGitStageFileConflict() {
 
 function checkEslint() {
   const arrErrorMsg = [`🤯 请先解决eslint警告后在提交！`, `📦 警告如下: `];
-  let eslint = execStr(`eslint --fix`);
+  let eslint = execStr(`eslint --fix src/**/*.{js,jsx,ts,tsx}`);
 
   const format = eslint.split("\n");
   if (format.length > 1) {
@@ -140,7 +140,7 @@ function check() {
   // 检查冲突
   checkGitStageFileConflict();
   // eslint检查
-  checkEslint();
+  // checkEslint();
   // 重写打包配置文件
   resetYmlFile();
 }
