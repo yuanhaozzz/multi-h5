@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { logError, execStr, grren } = require("./common");
+const { logError, execStr, grren } = require("../common");
 
 /**
  * 获取git缓存区内的所有文件和对应的hash
@@ -95,7 +95,7 @@ function check() {
   // 检查冲突
   // checkGitStageFileConflict();
   // eslint检查
-  checkEslint();
+  // checkEslint();
   console.log(222122321231223);
 }
 

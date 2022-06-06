@@ -151,8 +151,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node config/pre-commit.js",
-      "pre-push": "node config/pre-push.js"
+      "pre-commit": "node config/git/pre-commit.js",
+      "pre-push": "node config/git/pre-push.js"
     }
   },
   "devDependencies": {
