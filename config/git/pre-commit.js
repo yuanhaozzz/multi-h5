@@ -112,7 +112,7 @@ function resetYmlFile() {
   const pageKeys = Object.keys(pages);
   pageKeys.forEach((page) => {
     file += `
-   - name: 打包页面：${page} 
+   - name: deploy ${page} 
    uses: easingthemes/ssh-deploy@v2.0.7
    env:
      SSH_PRIVATE_KEY: \${{ secrets.DEPLOY_KEY }}
