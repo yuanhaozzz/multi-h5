@@ -128,6 +128,9 @@ function resetYmlFile() {
     path.join(__dirname, "../../.github/workflows", "deploy.yml"),
     file
   );
+
+  const readd = gitStatus();
+  console.log(readd);
 }
 
 function check() {
